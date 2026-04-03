@@ -1,0 +1,11 @@
+{
+  "name": "note-taking-app",
+  "private": true,
+  "scripts": {
+    "start": "npm --prefix back-end start",
+    "dev": "npm --prefix back-end run dev"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.0"
+  }
+}
