@@ -12,12 +12,19 @@ const PORT = process.env.PORT || 5001;
 app.use(express.json());
 app.use("/api/notes", notesRoutes);
 
-const startServer = async () => {
-    await connectDB();
+// our simple custom middleware
+app.use((req,res,next) =>{
+    console.log(`req method is ${req.method} & req`);
+    next();
+});
 
-    app.listen(PORT, () => {
-        console.log("server started on PORT:", PORT);
+connectDB()
+    .then(() => {
+        app.listen(PORT, () => {
+            console.log("server started on PORT:", PORT);
+        });
+    })
+    .catch((error) => {
+        console.error("Failed to start server", error);
+        process.exit(1);
     });
-};
-
-startServer();
