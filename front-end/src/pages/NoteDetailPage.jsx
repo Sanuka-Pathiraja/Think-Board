@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { ArrowLeft, Loader2, PencilLine, Save, Trash2 } from "lucide-react";
 import toast from "react-hot-toast";
 import RateLimitedUI from "../components/RateLimitedUI";

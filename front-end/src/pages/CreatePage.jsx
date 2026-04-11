@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Loader2, Save } from "lucide-react";
 import toast from "react-hot-toast";
 import RateLimitedUI from "../components/RateLimitedUI";
