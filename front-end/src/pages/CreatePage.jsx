@@ -4,7 +4,7 @@ import { ArrowLeft, Loader2, Save } from "lucide-react";
 import toast from "react-hot-toast";
 import RateLimitedUI from "../components/RateLimitedUI";
 
-const apiBase = import.meta.env.VITE_API_URL ?? "http://localhost:5001";
+const apiBase = (import.meta.env.VITE_API_URL || "").replace(/\/$/, "");
 
 function CreatePage() {
   const navigate = useNavigate();
