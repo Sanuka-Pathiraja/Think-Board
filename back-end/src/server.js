@@ -13,7 +13,8 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 5001;
-const allowedOrigins = (process.env.FRONTEND_URL || "http://localhost:5173")
+const frontendUrlEnv = process.env.FRONTEND_URL;
+const allowedOrigins = (frontendUrlEnv || "")
     .split(",")
     .map((origin) => origin.trim())
     .filter(Boolean);
@@ -23,6 +24,11 @@ app.use(
     "/api",
     cors({
         origin: (origin, callback) => {
+            if (!frontendUrlEnv) {
+                callback(null, true);
+                return;
+            }
+
             if (!origin || allowedOrigins.includes(origin)) {
                 callback(null, true);
                 return;
