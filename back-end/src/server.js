@@ -3,9 +3,13 @@ import notesRoutes from "./routes/notesRoutes.js";
 import connectDB from "../config/db.js";
 import dotenv from "dotenv";
 import cors from "cors";
+import path from "path";
 import { fileURLToPath } from "url";
 
 dotenv.config({ path: fileURLToPath(new URL("../.env", import.meta.url)) });
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -28,11 +32,18 @@ app.use(
     })
 );
 
-app.use("/api/notes", notesRoutes);
-
 app.use((req, res, next) => {
     console.log(`req method is ${req.method} & req`);
     next();
+});
+
+app.use("/api/notes", notesRoutes);
+
+const frontendBuildPath = path.resolve(__dirname, "../../front-end/dist");
+
+app.use(express.static(frontendBuildPath));
+app.get(/.*/, (req, res) => {
+    res.sendFile(path.join(frontendBuildPath, "index.html"));
 });
 
 connectDB()

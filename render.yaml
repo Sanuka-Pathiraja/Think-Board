@@ -1,22 +1,15 @@
 services:
   - type: web
-    name: thinkboard-api
+    name: thinkboard-app
     env: node
-    rootDir: back-end
-    buildCommand: npm install
+    rootDir: .
+    buildCommand: npm install && npm run build
     startCommand: npm start
     healthCheckPath: /api/notes
     envVars:
       - key: MONGODB_URL
         sync: false
       - key: FRONTEND_URL
-        value: https://thinkboard-web.onrender.com
-
-  - type: static
-    name: thinkboard-web
-    rootDir: front-end
-    buildCommand: npm install && npm run build
-    staticPublishPath: dist
-    envVars:
+        value: https://thinkboard-app.onrender.com
       - key: VITE_API_URL
-        value: https://thinkboard-api.onrender.com
+        value: https://thinkboard-app.onrender.com
