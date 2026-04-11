@@ -27,10 +27,10 @@ app.use(
         },
     })
 );
+
 app.use("/api/notes", notesRoutes);
 
-// our simple custom middleware
-app.use((req,res,next) =>{
+app.use((req, res, next) => {
     console.log(`req method is ${req.method} & req`);
     next();
 });
