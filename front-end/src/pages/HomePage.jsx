@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import RateLimitedUI from "../components/RateLimitedUI";
 
+const apiBase = import.meta.env.VITE_API_URL ?? "http://localhost:5001";
+
 const HomePage = () => {
   const [isRateLimited, setIsRateLimited] = useState(false);
   const [notes, setNotes] = useState([]);
@@ -10,7 +12,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchNotes = async () => {
       try {
-        const response = await fetch("http://localhost:5001/api/notes");
+        const response = await fetch(`${apiBase}/api/notes`);
 
         if (response.status === 429) {
           setIsRateLimited(true);

@@ -2,10 +2,27 @@
   "name": "note-taking-app",
   "private": true,
   "scripts": {
+    "build": "npm --prefix back-end install && npm --prefix front-end install && npm --prefix front-end run build",
     "start": "npm --prefix back-end start",
     "dev": "npm --prefix back-end run dev"
   },
   "dependencies": {
     "dotenv": "^17.4.0"
-  }
+  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sanuka-Pathiraja/Think-Board.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Sanuka-Pathiraja/Think-Board/issues"
+  },
+  "homepage": "https://github.com/Sanuka-Pathiraja/Think-Board#readme"
 }
