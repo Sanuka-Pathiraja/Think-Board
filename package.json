@@ -4,7 +4,7 @@
   "scripts": {
     "build": "npm --prefix back-end install && npm --prefix front-end install && npm --prefix front-end run build",
     "start": "npm --prefix back-end start",
-    "dev": "npm --prefix back-end run dev"
+    "dev": "node scripts/start-dev.mjs"
   },
   "dependencies": {
     "dotenv": "^17.4.0"

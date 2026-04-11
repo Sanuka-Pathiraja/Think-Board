@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import RateLimitedUI from "../components/RateLimitedUI";
-
-const apiBase = (import.meta.env.VITE_API_URL || "").replace(/\/$/, "");
+import apiBase from "../lib/apiBase";
 
 const HomePage = () => {
   const [isRateLimited, setIsRateLimited] = useState(false);

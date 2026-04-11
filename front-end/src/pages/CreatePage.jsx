@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Loader2, Save } from "lucide-react";
 import toast from "react-hot-toast";
 import RateLimitedUI from "../components/RateLimitedUI";
-
-const apiBase = (import.meta.env.VITE_API_URL || "").replace(/\/$/, "");
+import apiBase from "../lib/apiBase";
 
 function CreatePage() {
   const navigate = useNavigate();
