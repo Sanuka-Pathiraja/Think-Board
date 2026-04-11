@@ -9,7 +9,3 @@ services:
     envVars:
       - key: MONGODB_URL
         sync: false
-      - key: FRONTEND_URL
-        value: https://thinkboard-app.onrender.com
-      - key: VITE_API_URL
-        value: https://thinkboard-app.onrender.com
